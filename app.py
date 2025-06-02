@@ -40,11 +40,10 @@ with tab2:
     topic = st.text_input("Enter a topic (e.g., PCR, miRNA, CRISPR)")
 
     if topic.lower() == "pcr":
-        # ⬅️ Entire PCR module starts here
+        st.success("🧬 Learning Module: PCR")        # ⬅️ Entire PCR module starts here
 
     elif topic:
-        st.warning(f"No visual module yet for: {topic}")if topic.lower() == "pcr":
-    st.success("🧬 Learning Module: Polymerase Chain Reaction (PCR)")
+        st.warning(f"No visual module yet for: {topic}")
 
     # --- Section: Deep Summary ---
     st.markdown("### 📋 Detailed Summary of PCR")
