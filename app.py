@@ -41,56 +41,110 @@ with tab2:
     topic = st.text_input("Enter a topic (e.g., PCR, miRNA, CRISPR)")
 
     if topic.lower() == "pcr":
-        st.success("🧬 Visual Learning Experience for: PCR")
+        st.success("🧬 Polymerase Chain Reaction (PCR)")
 
-        # --- Section 1: Interactive Video ---
-        st.markdown("### 🎥 Interactive Video")
-        st.video("https://www.youtube.com/watch?v=2pp17E4E-O8")
-        st.markdown("**Topic:** What is PCR? | Source: DNA Learning Center")
+        # --- Definition ---
+        st.markdown("### 📌 What is PCR?")
+        st.markdown("**PCR (Polymerase Chain Reaction)** is a technique used to amplify specific DNA sequences in vitro, generating millions of copies from a small DNA sample.")
 
-        # --- Section 2: PCR Components Breakdown ---
-        st.markdown("### 🧩 PCR Reaction Components")
+        # --- History ---
+        st.markdown("### 🧬 Who developed it?")
+        st.markdown("- Invented by **Kary Mullis** in 1983\n- Revolutionized molecular biology\n- Awarded the **Nobel Prize in Chemistry (1993)**")
 
-        col1, col2 = st.columns(2)
-        with col1:
-            st.markdown("#### 🧬 Template DNA")
-            st.markdown("- Sequence to amplify\n- Can be plasmid or genomic\n- Must contain binding sites")
+        # --- Applications ---
+        st.markdown("### 💡 Applications of PCR")
+        st.markdown("""
+        - 🧪 Diagnosing infectious diseases (e.g., COVID-19, HIV)
+        - 🧬 Cloning and gene expression analysis
+        - 🔬 Forensic DNA fingerprinting
+        - 🌱 Genetically modified organisms (GMO) detection
+        - 🧫 Cancer mutation detection
+        """)
 
-            st.markdown("#### 🧪 Taq Polymerase")
-            st.markdown("- Heat-stable enzyme\n- Builds new DNA strands")
+        # --- Key Components ---
+        st.markdown("### 🔧 PCR Components")
+        st.markdown("""
+        - **Template DNA**: The DNA to be copied
+        - **Primers**: Short sequences that initiate replication
+        - **Taq Polymerase**: Heat-stable enzyme that builds DNA
+        - **dNTPs**: Nucleotide building blocks (A, T, G, C)
+        - **Buffer & Mg²⁺**: Maintain pH and enzyme activity
+        """)
 
-        with col2:
-            st.markdown("#### 🧲 Primers (F/R)")
-            st.markdown("- Forward + Reverse primers\n- 18–25 bases long\n- Define target region")
+        # --- 3-Step Mechanism ---
+        st.markdown("### 🔄 PCR Mechanism (Cycle)")
+        st.markdown("""
+        1. **Denaturation** (94–96°C): DNA strands separate
+        2. **Annealing** (50–65°C): Primers bind to target
+        3. **Extension** (72°C): Taq polymerase builds new strands
+        """)
 
-            st.markdown("#### 🧬 dNTPs")
-            st.markdown("- Nucleotide building blocks\n- A, T, G, C for extension")
+        # --- Videos ---
+        st.markdown("### 🎥 Learn PCR Visually (Basic → Advanced)")
 
-        # --- Section 3: PCR 3-Step Mechanism ---
-        st.markdown("### 🔄 PCR Three-Step Process")
+        st.markdown("**📘 Intro to PCR**")
+        st.video("https://www.youtube.com/watch?v=2KoLnIwoZKU")
 
-        st.markdown("#### 🥵 Step 1: Denaturation (94–96°C)")
-        st.markdown("- Heat breaks H-bonds\n- dsDNA → ssDNA")
+        st.markdown("**📗 PCR Explained with Animation**")
+        st.video("https://www.youtube.com/watch?v=_YgXcJ4n-kQ")
 
-        st.markdown("#### ❄️ Step 2: Annealing (50–65°C)")
-        st.markdown("- Primers bind target sequences")
+        st.markdown("**📕 Advanced PCR Variants**")
+        st.video("https://www.youtube.com/watch?v=3t-Nm4qAC8M")
 
-        st.markdown("#### 🔧 Step 3: Extension (72°C)")
-        st.markdown("- Taq Polymerase extends new DNA strand")
+        # --- Diagrams ---
+        st.markdown("### 🖼️ Diagrams & Flowcharts")
 
-        # --- Section 4: Mini Quiz Placeholder ---
-        st.markdown("### 🧠 Quick Quiz")
-        st.markdown("> **Q: What does PCR stand for?**")
-        st.radio("Choose an answer:", ["Protein Chain Reaction", "Polymerase Chain Reaction", "Primer Copy Replication"], index=None)
+        st.image("https://i.imgur.com/nZB9QyM.png", caption="PCR Flow Overview")
+        st.image("https://i.imgur.com/w3VFIcy.png", caption="PCR 3-Step Cycle")
+        st.image("https://i.imgur.com/9v6FzAW.png", caption="PCR Setup in Tube")
+        st.image("https://i.imgur.com/UmcMbv1.png", caption="Amplification Rounds")
+        st.image("https://i.imgur.com/6pSFXbP.png", caption="Taq Polymerase Mechanism")
 
-        st.info("📌 Scoring, feedback & progress tracking coming soon!")
+        st.markdown("💡 **Tip:** Click the sidebar to try other topics like CRISPR or miRNA soon!")
 
-    else:
-        st.warning("Try typing: `PCR` to explore full visual learning experience.")
-        st.info("✨ Soon: More topics like miRNA, CRISPR, RNAi and others will be added here!")
+# --- QUIZ SECTION ---
+st.markdown("### 🧠 Quiz Time: Test Your PCR Knowledge")
+
+st.markdown("#### 🧪 Basic Level")
+
+q1 = st.radio("1. What does PCR stand for?", 
+              ["Protein Chain Reaction", "Polymerase Chain Reaction", "Primer Cloning Reaction"], key="q1")
+if q1 == "Polymerase Chain Reaction":
+    st.success("✅ Correct!")
+elif q1:
+    st.error("❌ Oops! It stands for Polymerase Chain Reaction.")
+
+q2 = st.radio("2. What enzyme is used in PCR?", 
+              ["DNA Ligase", "RNA Polymerase", "Taq Polymerase"], key="q2")
+if q2 == "Taq Polymerase":
+    st.success("✅ Correct!")
+elif q2:
+    st.error("❌ Nope. It's Taq Polymerase — a heat-stable DNA polymerase.")
+
+# --- ADVANCED QUIZ ---
+st.markdown("#### 🔬 Advanced Level")
+
+q3 = st.radio("3. At what temperature does annealing usually occur?", 
+              ["30–40°C", "50–65°C", "75–85°C"], key="q3")
+if q3 == "50–65°C":
+    st.success("✅ Correct!")
+elif q3:
+    st.error("❌ Not quite. Annealing happens around 50–65°C.")
+
+q4 = st.radio("4. What happens during the extension phase?", 
+              ["DNA strands separate", 
+               "Primers bind to template", 
+               "New DNA strands are synthesized by Taq polymerase"], key="q4")
+if q4 == "New DNA strands are synthesized by Taq polymerase":
+    st.success("✅ Correct!")
+elif q4:
+    st.error("❌ That's not correct. Extension builds new DNA.")
+
+st.info("📈 More levels, scoring, and progress tracking coming soon!")
+else:
+        st.warning("Try typing `PCR` to view the full visual learning guide.")
+        st.info("Coming soon: Visual breakdowns for miRNA, CRISPR, and more.")
 
 # Footer
 st.markdown("---")
-st.caption("Made with 💡 by StudyMuse team")
-
-
+st.caption("Built with 💡 by StudyMuse team")
