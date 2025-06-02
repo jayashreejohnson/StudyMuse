@@ -38,19 +38,59 @@ with tab1:
 # ---------------- Search Tab ----------------
 with tab2:
     st.subheader("Search Biotech/Science Topic")
-    topic = st.text_input("Enter a topic (e.g., PCR, CRISPR, Photosynthesis)")
+    topic = st.text_input("Enter a topic (e.g., PCR, miRNA, CRISPR)")
 
-    if topic:
-        st.success(f"Results for: **{topic}**")
-        st.markdown("### 🎥 Video Guide:")
+    if topic.lower() == "pcr":
+        st.success("🧬 Visual Learning Experience for: PCR")
+
+        # --- Section 1: Interactive Video ---
+        st.markdown("### 🎥 Interactive Video")
         st.video("https://www.youtube.com/watch?v=2pp17E4E-O8")
+        st.markdown("**Topic:** What is PCR? | Source: DNA Learning Center")
 
-        st.markdown("### 🧬 Visual Diagram:")
-        st.image("https://upload.wikimedia.org/wikipedia/commons/5/5a/Polymerase_chain_reaction.svg", caption="Example PCR Diagram")
+        # --- Section 2: PCR Components Breakdown ---
+        st.markdown("### 🧩 PCR Reaction Components")
 
-        st.info("🧠 Soon: Dynamic visual + video results via AI + YouTube API!")
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown("#### 🧬 Template DNA")
+            st.markdown("- Sequence to amplify\n- Can be plasmid or genomic\n- Must contain binding sites")
 
+            st.markdown("#### 🧪 Taq Polymerase")
+            st.markdown("- Heat-stable enzyme\n- Builds new DNA strands")
+
+        with col2:
+            st.markdown("#### 🧲 Primers (F/R)")
+            st.markdown("- Forward + Reverse primers\n- 18–25 bases long\n- Define target region")
+
+            st.markdown("#### 🧬 dNTPs")
+            st.markdown("- Nucleotide building blocks\n- A, T, G, C for extension")
+
+        # --- Section 3: PCR 3-Step Mechanism ---
+        st.markdown("### 🔄 PCR Three-Step Process")
+
+        st.markdown("#### 🥵 Step 1: Denaturation (94–96°C)")
+        st.markdown("- Heat breaks H-bonds\n- dsDNA → ssDNA")
+
+        st.markdown("#### ❄️ Step 2: Annealing (50–65°C)")
+        st.markdown("- Primers bind target sequences")
+
+        st.markdown("#### 🔧 Step 3: Extension (72°C)")
+        st.markdown("- Taq Polymerase extends new DNA strand")
+
+        # --- Section 4: Mini Quiz Placeholder ---
+        st.markdown("### 🧠 Quick Quiz")
+        st.markdown("> **Q: What does PCR stand for?**")
+        st.radio("Choose an answer:", ["Protein Chain Reaction", "Polymerase Chain Reaction", "Primer Copy Replication"], index=None)
+
+        st.info("📌 Scoring, feedback & progress tracking coming soon!")
+
+    else:
+        st.warning("Try typing: `PCR` to explore full visual learning experience.")
+        st.info("✨ Soon: More topics like miRNA, CRISPR, RNAi and others will be added here!")
+
+# Footer
 st.markdown("---")
-st.caption("Built with 💡 by StudyMuse team")
+st.caption("Made with 💡 by StudyMuse team")
 
 
