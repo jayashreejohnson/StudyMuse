@@ -34,7 +34,16 @@ with tab1:
             st.write(text[:2000])
 
         st.info("✨ Coming soon: Smart AI summaries + topic detection")
-if topic.lower() == "pcr":
+# ---------------- Search Tab ----------------
+with tab2:
+    st.subheader("Search Biotech/Science Topic")
+    topic = st.text_input("Enter a topic (e.g., PCR, miRNA, CRISPR)")
+
+    if topic.lower() == "pcr":
+        # ⬅️ Entire PCR module starts here
+
+    elif topic:
+        st.warning(f"No visual module yet for: {topic}")if topic.lower() == "pcr":
     st.success("🧬 Learning Module: Polymerase Chain Reaction (PCR)")
 
     # --- Section: Deep Summary ---
