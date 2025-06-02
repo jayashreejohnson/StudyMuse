@@ -104,9 +104,9 @@ with tab2:
 
             # --- Videos ---
             st.markdown("### 🎥 Watch & Learn")
-            st.video("https://www.youtube.com/embed/2KoLnIwoZKU")
-            st.video("https://www.youtube.com/embed/_YgXcJ4n-kQ")
-            st.video("https://www.youtube.com/embed/ON2BtjL-8wM")
+            st.video("https://www.youtube.com/watch?v=2KoLnIwoZKU")
+            st.video("https://www.youtube.com/watch?v=_YgXcJ4n-kQ")
+            st.video("https://www.youtube.com/watch?v=ON2BtjL-8wM")
 
             # --- Interactive Quiz ---
             st.markdown("### 🧠 Quiz Time")
@@ -127,11 +127,14 @@ with tab2:
                 submit = st.form_submit_button("Submit Answers")
 
             if submit:
-                st.markdown("### ✅ Your Results")
-                st.markdown(f"**Q1:** {'✅ Correct' if q1 == 'Polymerase Chain Reaction' else '❌ Incorrect'}")
-                st.markdown(f"**Q2:** {'✅ Correct' if q2 == 'Taq Polymerase' else '❌ Incorrect'}")
-                st.markdown(f"**Q3:** {'✅ Correct' if q3 == '50–65°C' else '❌ Incorrect'}")
-                st.markdown(f"**Q4:** {'✅ Correct' if q4 == 'Taq builds new DNA' else '❌ Incorrect'}")
+                if None in [q1, q2, q3, q4]:
+                    st.error("❗Please answer all questions before submitting.")
+                else:
+                    st.markdown("### ✅ Your Results")
+                    st.markdown(f"**Q1:** {'✅ Correct' if q1 == 'Polymerase Chain Reaction' else '❌ Incorrect'}")
+                    st.markdown(f"**Q2:** {'✅ Correct' if q2 == 'Taq Polymerase' else '❌ Incorrect'}")
+                    st.markdown(f"**Q3:** {'✅ Correct' if q3 == '50–65°C' else '❌ Incorrect'}")
+                    st.markdown(f"**Q4:** {'✅ Correct' if q4 == 'Taq builds new DNA' else '❌ Incorrect'}")
 
             st.info("🧪 Stay tuned for advanced scoring, saved progress, and more topics!")
 
