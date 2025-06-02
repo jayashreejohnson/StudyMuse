@@ -141,10 +141,13 @@ elif q4:
     st.error("❌ That's not correct. Extension builds new DNA.")
 
 st.info("📈 More levels, scoring, and progress tracking coming soon!")
+
+# Now close the PCR section, and go back to the same level of indentation as the PCR 'if'
 elif topic:
     st.warning(f"No visual learning module available yet for: {topic}")
-    st.info("✨ Try typing 'PCR' to see the full experience. More topics coming soon!")
+    st.info("✨ Try typing 'PCR' to see the full experience. More topics coming soon.")
 
 # Footer
 st.markdown("---")
 st.caption("Built with 💡 by StudyMuse team")
+
