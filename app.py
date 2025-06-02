@@ -96,11 +96,11 @@ with tab2:
 
             # --- Diagrams ---
             st.markdown("### 🖼️ Visual Diagrams")
-            st.image("https://upload.wikimedia.org/wikipedia/commons/8/86/PCR.png", caption="PCR Cycle Overview", use_column_width=True)
-            st.image("https://upload.wikimedia.org/wikipedia/commons/f/f5/PCR_steps.png", caption="PCR Steps", use_column_width=True)
-            st.image("https://upload.wikimedia.org/wikipedia/commons/4/4c/Components_of_a_PCR.png", caption="PCR Components", use_column_width=True)
-            st.image("https://upload.wikimedia.org/wikipedia/commons/0/09/Thermal_cycler.png", caption="Thermal Cycler", use_column_width=True)
-            st.image("https://upload.wikimedia.org/wikipedia/commons/5/54/Taq-polymerase.png", caption="Taq Polymerase", use_column_width=True)
+            st.image("https://upload.wikimedia.org/wikipedia/commons/8/86/PCR.png", caption="PCR Cycle", use_container_width=True)
+            st.image("https://upload.wikimedia.org/wikipedia/commons/f/f5/PCR_steps.png", caption="PCR Steps", use_container_width=True)
+            st.image("https://upload.wikimedia.org/wikipedia/commons/4/4c/Components_of_a_PCR.png", caption="PCR Components", use_container_width=True)
+            st.image("https://upload.wikimedia.org/wikipedia/commons/0/09/Thermal_cycler.png", caption="Thermal Cycler", use_container_width=True)
+            st.image("https://upload.wikimedia.org/wikipedia/commons/5/54/Taq-polymerase.png", caption="Taq Polymerase", use_container_width=True)
 
             # --- Videos ---
             st.markdown("### 🎥 Watch & Learn")
@@ -116,13 +116,13 @@ with tab2:
 
             with st.form("quiz_form"):
                 q1 = st.radio("1. What does PCR stand for?", 
-                            ["Protein Chain Reaction", "Polymerase Chain Reaction", "Primer Cloning Reaction"])
+                            ["Protein Chain Reaction", "Polymerase Chain Reaction", "Primer Cloning Reaction"], index=None)
                 q2 = st.radio("2. What enzyme is used in PCR?", 
-                            ["DNA Ligase", "RNA Polymerase", "Taq Polymerase"])
+                            ["DNA Ligase", "RNA Polymerase", "Taq Polymerase"], index=None)
                 q3 = st.radio("3. What temperature is used in annealing?", 
-                            ["30–40°C", "50–65°C", "75–85°C"])
+                            ["30–40°C", "50–65°C", "75–85°C"], index=None)
                 q4 = st.radio("4. What happens during extension?", 
-                            ["DNA separates", "Primers bind", "Taq builds new DNA"])
+                            ["DNA separates", "Primers bind", "Taq builds new DNA"], index=None)
 
                 submit = st.form_submit_button("Submit Answers")
 
