@@ -141,9 +141,9 @@ elif q4:
     st.error("❌ That's not correct. Extension builds new DNA.")
 
 st.info("📈 More levels, scoring, and progress tracking coming soon!")
-else:
-        st.warning("Try typing `PCR` to view the full visual learning guide.")
-        st.info("Coming soon: Visual breakdowns for miRNA, CRISPR, and more.")
+elif topic:
+    st.warning(f"No visual learning module available yet for: {topic}")
+    st.info("✨ Try typing 'PCR' to see the full experience. More topics coming soon!")
 
 # Footer
 st.markdown("---")
