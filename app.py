@@ -46,86 +46,76 @@ with tab2:
             # --- Section: Deep Summary ---
             st.markdown("### 📋 Detailed Summary of PCR")
             st.markdown("""
-            **Polymerase Chain Reaction (PCR)** is a revolutionary molecular biology technique used to selectively amplify DNA. It enables researchers to create millions of copies of a specific DNA segment from a minimal starting amount.
+            **Polymerase Chain Reaction (PCR)** is a groundbreaking molecular biology technique developed by **Kary Mullis** in 1983. It revolutionized the way we amplify and analyze DNA.
 
-            #### 🔬 Why is PCR Important?
-            - Makes DNA analysis faster, cheaper, and more accessible
-            - Enables genetic testing without needing large tissue samples
-            - Powers genomics, diagnostics, forensics, and more
+            #### 🔬 What is PCR?
+            A method to generate millions to billions of copies of a specific DNA segment using a thermal cycler.
 
-            #### 🧪 Core Principle
-            Mimics natural DNA replication using a **thermal cycler** and **heat-stable DNA polymerase** (Taq). Each cycle doubles the DNA — ~1 billion copies in 30 cycles.
+            #### 🧠 Fun Facts:
+            - Invented during a drive on the California coast
+            - Won the **Nobel Prize in Chemistry** in 1993
+            - Used in everything from ancestry kits to COVID-19 testing
 
-            #### ⚙️ Components
+            #### ⚙️ Components:
             - Template DNA
-            - Primers
-            - Taq Polymerase (from *Thermus aquaticus*)
-            - dNTPs (A, T, G, C)
-            - Buffer & MgCl₂
+            - Primers (short DNA sequences that flank the target)
+            - Taq DNA Polymerase (heat-resistant enzyme)
+            - dNTPs (building blocks: A, T, G, C)
+            - Buffer with MgCl₂
 
-            #### 🔁 Workflow
+            #### 🔁 Steps in a Cycle:
             1. **Denaturation (94–96°C)** – DNA strands separate
-            2. **Annealing (50–65°C)** – Primers bind to target
-            3. **Extension (72°C)** – New DNA built by Taq
+            2. **Annealing (50–65°C)** – Primers attach
+            3. **Extension (72°C)** – Taq polymerase builds new DNA
 
-            #### 🧬 Who Invented It?
-            - Kary Mullis, 1983 — Nobel Prize in Chemistry, 1993
+            #### ✅ Advantages:
+            - Rapid and cost-effective
+            - Requires minimal sample
+            - High specificity and sensitivity
+            - Versatile across fields (medical, forensics, agriculture)
 
-            #### 🚫 Limitations
-            - Sensitive to contamination
-            - Requires primer knowledge
-            - Not ideal for long DNA sequences
-            """)
+            #### 🚫 Limitations:
+            - Contamination risk
+            - Requires primer sequence knowledge
+            - Not ideal for long DNA fragments
 
-            # --- Applications ---
-            st.markdown("### 💡 Applications of PCR")
-            st.markdown("""
-            - 🧪 Disease diagnostics (e.g., COVID-19, HIV)
-            - 🔬 DNA fingerprinting in forensics
-            - 🧬 Detecting mutations in genetic diseases
-            - 🌽 GMO detection in agriculture
-            - 🧫 Gene cloning & expression research
+            #### 🔬 Applications:
+            - 🧬 Genetic diagnostics (e.g., BRCA mutation testing)
+            - 🦠 Pathogen detection (e.g., COVID-19)
+            - 🔍 Forensic DNA profiling
+            - 🌾 Detection of GMOs in food
+            - 🧪 Research cloning & gene expression
             """)
 
             # --- Diagrams ---
-st.markdown("### 🖼️ Visual Diagrams")
+            st.markdown("### 🖼️ Visual Diagrams")
+            col1, col2 = st.columns(2)
+            with col1:
+                st.image(
+                    "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR1.jpeg",
+                    caption="PCR Workflow Overview", use_container_width=True)
+            with col2:
+                st.image(
+                    "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR2.jpg",
+                    caption="PCR Steps Simplified", use_container_width=True)
 
-# First row of diagrams
-col1, col2 = st.columns(2)
-with col1:
-    st.image(
-        "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR1.jpeg",
-        caption="PCR Workflow Overview", use_container_width=True
-    )
-with col2:
-    st.image(
-        "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR2.jpg",
-        caption="PCR Steps Simplified", use_container_width=True
-    )
+            col3, col4 = st.columns(2)
+            with col3:
+                st.image(
+                    "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR4.png",
+                    caption="DNA Polymerase Mechanism", use_container_width=True)
+            with col4:
+                st.image(
+                    "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR3.jpg",
+                    caption="Visual Breakdown of Viral RNA Extraction & Detection", use_container_width=True)
 
-# Second row of diagrams
-col3, col4 = st.columns(2)
-with col3:
-    st.image(
-        "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR4.png",
-        caption="DNA Polymerase Mechanism", use_container_width=True
-    )
-with col4:
-    st.image(
-        "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR3.jpg",
-        caption="Visual Breakdown of Viral RNA Extraction & Detection", use_container_width=True
-    )
-
-# Optional bottom diagram
-st.image(
-    "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR5.jpeg",
-    caption="Thermal Profile of PCR", use_container_width=True
-)
+            st.image(
+                "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR5.jpeg",
+                caption="Thermal Profile of PCR", use_container_width=True)
 
             # --- Videos ---
             st.markdown("### 🎥 Watch & Learn")
             st.video("https://www.youtube.com/embed/2KoLnIwoZKU")
-            st.video("https://www.youtube.com/embed/iQsu3Kz9NYo")
             st.video("https://www.youtube.com/embed/mOKb0Pd_Rac")
 
             # --- Interactive Quiz ---
@@ -134,14 +124,14 @@ st.image(
                 st.session_state["submitted"] = False
 
             with st.form("quiz_form"):
-                q1 = st.radio("1. What does PCR stand for?", 
-                             ["Protein Chain Reaction", "Polymerase Chain Reaction", "Primer Cloning Reaction"], index=None)
-                q2 = st.radio("2. What enzyme is used in PCR?", 
-                             ["DNA Ligase", "RNA Polymerase", "Taq Polymerase"], index=None)
-                q3 = st.radio("3. What temperature is used in annealing?", 
-                             ["30–40°C", "50–65°C", "75–85°C"], index=None)
-                q4 = st.radio("4. What happens during extension?", 
-                             ["DNA separates", "Primers bind", "Taq builds new DNA"], index=None)
+                q1 = st.radio("1. What does PCR stand for?",
+                              ["Protein Chain Reaction", "Polymerase Chain Reaction", "Primer Cloning Reaction"], index=None)
+                q2 = st.radio("2. What enzyme is used in PCR?",
+                              ["DNA Ligase", "RNA Polymerase", "Taq Polymerase"], index=None)
+                q3 = st.radio("3. What temperature is used in annealing?",
+                              ["30–40°C", "50–65°C", "75–85°C"], index=None)
+                q4 = st.radio("4. What happens during extension?",
+                              ["DNA separates", "Primers bind", "Taq builds new DNA"], index=None)
                 submit = st.form_submit_button("Submit Answers")
 
             if submit:
@@ -152,7 +142,6 @@ st.image(
                 st.markdown(f"**Q4:** {'✅ Correct' if q4 == 'Taq builds new DNA' else '❌ Incorrect'}")
 
             st.info("🧪 Stay tuned for advanced scoring, saved progress, and more topics!")
-
         else:
             st.warning(f"No visual module yet for: {topic}")
 
