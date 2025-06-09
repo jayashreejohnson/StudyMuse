@@ -5,6 +5,8 @@ import pytesseract
 import tempfile
 import time       
 
+st.set_page_config(page_title="StudyMuse", layout="centered")
+
 # --- Custom Pastel Theme ---
 st.markdown("""
     <style>
@@ -43,7 +45,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Page config and title ---
-st.set_page_config(page_title="StudyMuse", layout="centered")
 st.title("📚 StudyMuse – Visual Memory Aid for Science Students")
 
 # --- Tabs for Upload/Search ---
@@ -79,7 +80,6 @@ with tab1:
 # Tab 2 code starts separately after this point
 # ---------------------------------------------
 # ---------------- Search Tab ----------------
-import time
 
 with tab2:
     st.subheader("Search Biotech/Science Topic")
