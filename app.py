@@ -4,66 +4,89 @@ import fitz  # PyMuPDF
 from PIL import Image
 import pytesseract
 import tempfile
+import time
 
 st.set_page_config(page_title="StudyMuse", layout="centered")
 st.title("📚 StudyMuse – Visual Memory Aid for Science Students")
 st.markdown("""
     <style>
-    /* Entire app background & text */
+    /* Global pastel background */
     .main {
-        background-color: #fdf6f0;
+        background-color: #fdf7f5 !important;
         color: #333;
         font-family: 'Segoe UI', sans-serif;
     }
 
-    /* Title and section headings */
+    /* Header / title */
     h1, h2, h3 {
-        color: #665c84;
+        color: #5b4b8a;
+        transition: color 0.3s ease;
     }
 
-    /* Tabs */
+    /* Tabs styling */
     .stTabs [data-baseweb="tab"] {
         background-color: #fde4ec;
-        border-radius: 5px;
-        color: #493256;
+        border-radius: 8px;
+        margin-right: 5px;
+        transition: background-color 0.3s ease;
+        color: #6a4b72;
+        font-weight: 500;
     }
     .stTabs [aria-selected="true"] {
         background-color: #fbcadf;
         font-weight: bold;
+        color: #4a2f4e;
     }
 
-    /* File uploader and input boxes */
-    .stFileUploader, .stTextInput, .stTextArea {
+    /* Input boxes */
+    .stTextInput > div > div > input {
         background-color: #fff0f6;
         border-radius: 8px;
+        padding: 8px;
+        border: 1px solid #f4c2d7;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* File uploader and radio buttons */
+    .stFileUploader, .stRadio > div {
+        background-color: #fff5fa;
+        border-radius: 10px;
+        padding: 5px 10px;
     }
 
     /* Buttons */
-    .stButton>button {
+    .stButton > button {
         background-color: #f8bbd0;
         color: white;
-        border: none;
         border-radius: 6px;
+        border: none;
+        padding: 8px 16px;
+        transition: background-color 0.3s ease;
+    }
+    .stButton > button:hover {
+        background-color: #f48fb1;
     }
 
-    /* Info and success alerts */
+    /* Info / success / warning boxes */
     .stAlert {
-        background-color: #ffe6f0;
-        border-left: 5px solid #f48fb1;
+        border-radius: 8px;
+        padding: 10px;
+        animation: fadein 1s ease-in-out;
     }
 
-    /* Markdown containers */
+    /* Markdown content block styling */
     .markdown-text-container {
-        background-color: #fff7fb;
+        background-color: #fff8fa;
         padding: 1rem;
         border-radius: 12px;
-        border: 1px solid #f7c3d4;
+        border: 1px solid #ffdce5;
+        transition: all 0.3s ease;
     }
 
-    /* Quiz radio options */
-    .stRadio > div {
-        background-color: #fff5f9;
-        border-radius: 10px;
+    /* Animation */
+    @keyframes fadein {
+        from {opacity: 0;}
+        to {opacity: 1;}
     }
     </style>
 """, unsafe_allow_html=True)
@@ -100,9 +123,12 @@ with tab2:
     st.subheader("Search Biotech/Science Topic")
     topic = st.text_input("Enter a topic (e.g., PCR, miRNA, CRISPR)")
 
-    if topic:
+   if topic:
+       with st.spinner("🔎 Searching the depths of science..."):
+           time.sleep(1.5)  # Simulate animation pause
+
         if topic.lower() == "pcr":
-            st.success("🧬 Learning Module: Polymerase Chain Reaction (PCR)")
+           st.success("🧬 Learning Module: Polymerase Chain Reaction (PCR)")
 
             # --- Section: Deep Summary ---
             st.markdown("### 📋 Detailed Summary of PCR")
