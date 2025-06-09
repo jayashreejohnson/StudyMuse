@@ -1,63 +1,52 @@
-
 import streamlit as st
 import fitz  # PyMuPDF
-from PIL import Image
-import pytesseract
+from PIL import Image 
+import pytesseract    
 import tempfile
-import time
-# --- Custom Pastel Styling ---
+import time       
+
+# --- Custom Pastel Theme ---
 st.markdown("""
     <style>
-    /* Background in pastel pink */
     .stApp {
         background-color: #fff8f4;
         font-family: 'Helvetica Neue', sans-serif;
     }
-
-    /* Tabs */
     .stTabs [data-baseweb="tab-list"] {
         background-color: #ffeaf2;
         border-radius: 10px;
         padding: 4px;
     }
-
-    /* Selected tab */
     .stTabs [aria-selected="true"] {
         background-color: #fcd6e2;
         color: black;
         border-radius: 10px;
         font-weight: bold;
     }
-
-    /* Input box */
     input, .stTextInput>div>div>input {
         background-color: #fffafc;
         border: 1px solid #f7b4c2;
         border-radius: 8px;
         padding: 10px;
     }
-
-    /* Subheaders & Titles */
     h1, h2, h3, h4 {
         color: #3f3f3f;
     }
-
-    /* Success message (like Learning Module found) */
     .stAlert-success {
         background-color: #e6fffa;
         color: #264d4a;
     }
-
-    /* Markdown and body text */
     .css-1cpxqw2, .stMarkdown {
         color: #2f2f2f;
     }
     </style>
 """, unsafe_allow_html=True)
 
+# --- Page config and title ---
 st.set_page_config(page_title="StudyMuse", layout="centered")
 st.title("📚 StudyMuse – Visual Memory Aid for Science Students")
 
+# --- Tabs for Upload/Search ---
 tab1, tab2 = st.tabs(["📤 Upload Notes", "🔍 Search Topic"])
 
 # ---------------- Upload Tab ----------------
@@ -69,7 +58,7 @@ with tab1:
         file_type = uploaded_file.type
 
         if "pdf" in file_type:
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
+            with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
                 tmp_file.write(uploaded_file.read())
                 doc = fitz.open(tmp_file.name)
                 text = ""
@@ -83,8 +72,12 @@ with tab1:
             text = pytesseract.image_to_string(img)
             st.success("✅ Extracted text from image:")
             st.write(text[:2000])
-
+        
         st.info("✨ Coming soon: Smart AI summaries + topic detection")
+
+# ---------------------------------------------
+# Tab 2 code starts separately after this point
+# ---------------------------------------------
 # ---------------- Search Tab ----------------
 with tab2:
     st.subheader("Search Biotech/Science Topic")
