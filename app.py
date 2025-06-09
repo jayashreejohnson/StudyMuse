@@ -46,95 +46,88 @@ with tab2:
             # --- Section: Deep Summary ---
             st.markdown("### 📋 Detailed Summary of PCR")
             st.markdown("""
-            **Polymerase Chain Reaction (PCR)** is a revolutionary molecular biology technique used to selectively amplify DNA. It enables researchers to create millions of copies of a specific DNA segment from a minimal starting amount. This exponential amplification is achieved through repeated cycles of thermal processing — mimicking natural DNA replication in a test tube.
+            **Polymerase Chain Reaction (PCR)** is a revolutionary molecular biology technique used to selectively amplify DNA. It enables researchers to create millions of copies of a specific DNA segment from a minimal starting amount.
 
             #### 🔬 Why is PCR Important?
-            PCR transformed modern science by:
-            - Making **DNA analysis faster, cheaper, and accessible**
-            - Enabling **genetic testing** without needing large tissue samples
-            - Powering techniques in **genomics, diagnostics, forensics, and research**
+            - Makes DNA analysis faster, cheaper, and more accessible
+            - Enables genetic testing without needing large tissue samples
+            - Powers genomics, diagnostics, forensics, and more
 
             #### 🧪 Core Principle
-            PCR mimics natural DNA replication but is controlled artificially using a **thermal cycler** and a **heat-stable DNA polymerase** (Taq polymerase). Each cycle **doubles** the DNA target — leading to over a billion copies in under 30 cycles.
+            Mimics natural DNA replication using a **thermal cycler** and **heat-stable DNA polymerase** (Taq). Each cycle doubles the DNA — ~1 billion copies in 30 cycles.
 
-            #### ⚙️ Components Required
-            - **Template DNA**: the target sequence you want to amplify
-            - **Primers**: short synthetic DNA pieces that flank the target
-            - **Taq Polymerase**: derived from *Thermus aquaticus*, can withstand high heat
-            - **dNTPs**: free nucleotides (A, T, G, C) used to build new strands
-            - **Buffer + MgCl₂**: ensures enzyme activity and reaction stability
+            #### ⚙️ Components
+            - Template DNA
+            - Primers
+            - Taq Polymerase (from *Thermus aquaticus*)
+            - dNTPs (A, T, G, C)
+            - Buffer & MgCl₂
 
-            #### 🔁 Step-by-Step Workflow
-            1. **Denaturation (94–96°C)**  
-               DNA is heated to break hydrogen bonds and separate the strands.
-            2. **Annealing (50–65°C)**  
-               Primers attach to complementary sequences on each strand.
-            3. **Extension (72°C)**  
-               Taq polymerase adds nucleotides to build the new DNA strands.
+            #### 🔁 Workflow
+            1. **Denaturation (94–96°C)** – DNA strands separate
+            2. **Annealing (50–65°C)** – Primers bind to target
+            3. **Extension (72°C)** – New DNA built by Taq
 
-            This 3-step process is repeated ~30 times, resulting in exponential amplification.
+            #### 🧬 Who Invented It?
+            - Kary Mullis, 1983 — Nobel Prize in Chemistry, 1993
 
-            #### 🏆 Historical Significance
-            - Invented by **Kary Mullis** in 1983 during a drive along the California coast.
-            - Awarded the **1993 Nobel Prize in Chemistry** for PCR’s profound scientific impact.
-
-            #### 🚀 Limitations
-            - Highly sensitive to contamination  
-            - Requires prior knowledge of flanking sequences for primer design  
-            - Not suitable for amplifying extremely long DNA fragments
+            #### 🚫 Limitations
+            - Sensitive to contamination
+            - Requires primer knowledge
+            - Not ideal for long DNA sequences
             """)
 
             # --- Applications ---
             st.markdown("### 💡 Applications of PCR")
             st.markdown("""
-            - 🧪 Medical diagnostics (COVID-19, HIV, etc.)
-            - 🔬 Forensic DNA fingerprinting
-            - 🧬 Mutation detection in genetic testing
-            - 🌿 Detection of GMOs in crops
-            - 🧫 Gene expression and cloning in research
+            - 🧪 Disease diagnostics (e.g., COVID-19, HIV)
+            - 🔬 DNA fingerprinting in forensics
+            - 🧬 Detecting mutations in genetic diseases
+            - 🌽 GMO detection in agriculture
+            - 🧫 Gene cloning & expression research
             """)
 
             # --- Diagrams ---
             st.markdown("### 🖼️ Visual Diagrams")
-            st.image("https://upload.wikimedia.org/wikipedia/commons/8/86/PCR.png", caption="PCR Cycle", use_container_width=True)
-            st.image("https://upload.wikimedia.org/wikipedia/commons/f/f5/PCR_steps.png", caption="PCR Steps", use_container_width=True)
-            st.image("https://upload.wikimedia.org/wikipedia/commons/4/4c/Components_of_a_PCR.png", caption="PCR Components", use_container_width=True)
-            st.image("https://upload.wikimedia.org/wikipedia/commons/0/09/Thermal_cycler.png", caption="Thermal Cycler", use_container_width=True)
-            st.image("https://upload.wikimedia.org/wikipedia/commons/5/54/Taq-polymerase.png", caption="Taq Polymerase", use_container_width=True)
+            cols = st.columns(2)
+            images = [
+                ("PCR Workflow Overview", "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR1.jpeg"),
+                ("PCR Steps Simplified", "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR2.jpg"),
+                ("Visual Breakdown of Viral RNA Extraction & Detection", "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR3.jpg"),
+                ("DNA Polymerase Mechanism", "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR4.png"),
+                ("Thermal Profile of PCR", "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR5.jpeg")
+            ]
+            for i, (caption, url) in enumerate(images):
+                cols[i % 2].image(url, caption=caption, use_container_width=True)
 
             # --- Videos ---
             st.markdown("### 🎥 Watch & Learn")
-            st.video("https://www.youtube.com/watch?v=2KoLnIwoZKU")
-            st.video("https://www.youtube.com/watch?v=_YgXcJ4n-kQ")
-            st.video("https://www.youtube.com/watch?v=ON2BtjL-8wM")
+            st.video("https://www.youtube.com/embed/2KoLnIwoZKU")
+            st.video("https://www.youtube.com/embed/_YgXcJ4n-kQ")
+            st.video("https://www.youtube.com/embed/ON2BtjL-8wM")
 
             # --- Interactive Quiz ---
             st.markdown("### 🧠 Quiz Time")
-
             if "submitted" not in st.session_state:
                 st.session_state["submitted"] = False
 
             with st.form("quiz_form"):
                 q1 = st.radio("1. What does PCR stand for?", 
-                            ["Protein Chain Reaction", "Polymerase Chain Reaction", "Primer Cloning Reaction"], index=None)
+                             ["Protein Chain Reaction", "Polymerase Chain Reaction", "Primer Cloning Reaction"], index=None)
                 q2 = st.radio("2. What enzyme is used in PCR?", 
-                            ["DNA Ligase", "RNA Polymerase", "Taq Polymerase"], index=None)
+                             ["DNA Ligase", "RNA Polymerase", "Taq Polymerase"], index=None)
                 q3 = st.radio("3. What temperature is used in annealing?", 
-                            ["30–40°C", "50–65°C", "75–85°C"], index=None)
+                             ["30–40°C", "50–65°C", "75–85°C"], index=None)
                 q4 = st.radio("4. What happens during extension?", 
-                            ["DNA separates", "Primers bind", "Taq builds new DNA"], index=None)
-
+                             ["DNA separates", "Primers bind", "Taq builds new DNA"], index=None)
                 submit = st.form_submit_button("Submit Answers")
 
             if submit:
-                if None in [q1, q2, q3, q4]:
-                    st.error("❗Please answer all questions before submitting.")
-                else:
-                    st.markdown("### ✅ Your Results")
-                    st.markdown(f"**Q1:** {'✅ Correct' if q1 == 'Polymerase Chain Reaction' else '❌ Incorrect'}")
-                    st.markdown(f"**Q2:** {'✅ Correct' if q2 == 'Taq Polymerase' else '❌ Incorrect'}")
-                    st.markdown(f"**Q3:** {'✅ Correct' if q3 == '50–65°C' else '❌ Incorrect'}")
-                    st.markdown(f"**Q4:** {'✅ Correct' if q4 == 'Taq builds new DNA' else '❌ Incorrect'}")
+                st.markdown("### ✅ Your Results")
+                st.markdown(f"**Q1:** {'✅ Correct' if q1 == 'Polymerase Chain Reaction' else '❌ Incorrect'}")
+                st.markdown(f"**Q2:** {'✅ Correct' if q2 == 'Taq Polymerase' else '❌ Incorrect'}")
+                st.markdown(f"**Q3:** {'✅ Correct' if q3 == '50–65°C' else '❌ Incorrect'}")
+                st.markdown(f"**Q4:** {'✅ Correct' if q4 == 'Taq builds new DNA' else '❌ Incorrect'}")
 
             st.info("🧪 Stay tuned for advanced scoring, saved progress, and more topics!")
 
