@@ -1,37 +1,5 @@
 
 import streamlit as st
-from streamlit_extras.animate import animate
-
-st.set_page_config(
-    page_title="StudyMuse",
-    layout="centered",
-    initial_sidebar_state="auto",
-    page_icon="📚"
-)
-
-# Set pastel-themed background color and font
-st.markdown("""
-    <style>
-        body {
-            background-color: #fdf6f0;
-            color: #2d2d2d;
-            font-family: 'Segoe UI', sans-serif;
-        }
-        .stButton>button {
-            background-color: #fde2e2;
-            color: #000;
-            border-radius: 8px;
-            padding: 0.4em 1em;
-        }
-        .stTabs [data-baseweb="tab"] {
-            background-color: #f9f5ff;
-            border-radius: 8px 8px 0 0;
-        }
-        .stMarkdown h3, .stMarkdown h4, .stMarkdown h5 {
-            color: #6b4e71;
-        }
-    </style>
-""", unsafe_allow_html=True)
 import fitz  # PyMuPDF
 from PIL import Image
 import pytesseract
@@ -39,6 +7,66 @@ import tempfile
 
 st.set_page_config(page_title="StudyMuse", layout="centered")
 st.title("📚 StudyMuse – Visual Memory Aid for Science Students")
+st.markdown("""
+    <style>
+    /* Entire app background & text */
+    .main {
+        background-color: #fdf6f0;
+        color: #333;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Title and section headings */
+    h1, h2, h3 {
+        color: #665c84;
+    }
+
+    /* Tabs */
+    .stTabs [data-baseweb="tab"] {
+        background-color: #fde4ec;
+        border-radius: 5px;
+        color: #493256;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #fbcadf;
+        font-weight: bold;
+    }
+
+    /* File uploader and input boxes */
+    .stFileUploader, .stTextInput, .stTextArea {
+        background-color: #fff0f6;
+        border-radius: 8px;
+    }
+
+    /* Buttons */
+    .stButton>button {
+        background-color: #f8bbd0;
+        color: white;
+        border: none;
+        border-radius: 6px;
+    }
+
+    /* Info and success alerts */
+    .stAlert {
+        background-color: #ffe6f0;
+        border-left: 5px solid #f48fb1;
+    }
+
+    /* Markdown containers */
+    .markdown-text-container {
+        background-color: #fff7fb;
+        padding: 1rem;
+        border-radius: 12px;
+        border: 1px solid #f7c3d4;
+    }
+
+    /* Quiz radio options */
+    .stRadio > div {
+        background-color: #fff5f9;
+        border-radius: 10px;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(["📤 Upload Notes", "🔍 Search Topic"])
 
