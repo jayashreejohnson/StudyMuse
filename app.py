@@ -5,91 +5,58 @@ from PIL import Image
 import pytesseract
 import tempfile
 import time
-
-st.set_page_config(page_title="StudyMuse", layout="centered")
-st.title("📚 StudyMuse – Visual Memory Aid for Science Students")
+# --- Custom Pastel Styling ---
 st.markdown("""
     <style>
-    /* Global pastel background */
-    .main {
-        background-color: #fdf7f5 !important;
-        color: #333;
-        font-family: 'Segoe UI', sans-serif;
+    /* Background in pastel pink */
+    .stApp {
+        background-color: #fff8f4;
+        font-family: 'Helvetica Neue', sans-serif;
     }
 
-    /* Header / title */
-    h1, h2, h3 {
-        color: #5b4b8a;
-        transition: color 0.3s ease;
-    }
-
-    /* Tabs styling */
-    .stTabs [data-baseweb="tab"] {
-        background-color: #fde4ec;
-        border-radius: 8px;
-        margin-right: 5px;
-        transition: background-color 0.3s ease;
-        color: #6a4b72;
-        font-weight: 500;
-    }
-    .stTabs [aria-selected="true"] {
-        background-color: #fbcadf;
-        font-weight: bold;
-        color: #4a2f4e;
-    }
-
-    /* Input boxes */
-    .stTextInput > div > div > input {
-        background-color: #fff0f6;
-        border-radius: 8px;
-        padding: 8px;
-        border: 1px solid #f4c2d7;
-        transition: all 0.3s ease-in-out;
-    }
-
-    /* File uploader and radio buttons */
-    .stFileUploader, .stRadio > div {
-        background-color: #fff5fa;
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        background-color: #ffeaf2;
         border-radius: 10px;
-        padding: 5px 10px;
+        padding: 4px;
     }
 
-    /* Buttons */
-    .stButton > button {
-        background-color: #f8bbd0;
-        color: white;
-        border-radius: 6px;
-        border: none;
-        padding: 8px 16px;
-        transition: background-color 0.3s ease;
-    }
-    .stButton > button:hover {
-        background-color: #f48fb1;
+    /* Selected tab */
+    .stTabs [aria-selected="true"] {
+        background-color: #fcd6e2;
+        color: black;
+        border-radius: 10px;
+        font-weight: bold;
     }
 
-    /* Info / success / warning boxes */
-    .stAlert {
+    /* Input box */
+    input, .stTextInput>div>div>input {
+        background-color: #fffafc;
+        border: 1px solid #f7b4c2;
         border-radius: 8px;
         padding: 10px;
-        animation: fadein 1s ease-in-out;
     }
 
-    /* Markdown content block styling */
-    .markdown-text-container {
-        background-color: #fff8fa;
-        padding: 1rem;
-        border-radius: 12px;
-        border: 1px solid #ffdce5;
-        transition: all 0.3s ease;
+    /* Subheaders & Titles */
+    h1, h2, h3, h4 {
+        color: #3f3f3f;
     }
 
-    /* Animation */
-    @keyframes fadein {
-        from {opacity: 0;}
-        to {opacity: 1;}
+    /* Success message (like Learning Module found) */
+    .stAlert-success {
+        background-color: #e6fffa;
+        color: #264d4a;
+    }
+
+    /* Markdown and body text */
+    .css-1cpxqw2, .stMarkdown {
+        color: #2f2f2f;
     }
     </style>
 """, unsafe_allow_html=True)
+
+st.set_page_config(page_title="StudyMuse", layout="centered")
+st.title("📚 StudyMuse – Visual Memory Aid for Science Students")
 
 tab1, tab2 = st.tabs(["📤 Upload Notes", "🔍 Search Topic"])
 
