@@ -103,8 +103,8 @@ with tab2:
             # --- Videos ---
             st.markdown("### 🎥 Watch & Learn")
             st.video("https://www.youtube.com/embed/2KoLnIwoZKU")
-            st.video("https://www.youtube.com/embed/_YgXcJ4n-kQ")
-            st.video("https://www.youtube.com/embed/ON2BtjL-8wM")
+            st.video("https://www.youtube.com/embed/iQsu3Kz9NYo")
+            st.video("https://www.youtube.com/embed/qXld9Wc4pKw")
 
             # --- Interactive Quiz ---
             st.markdown("### 🧠 Quiz Time")
