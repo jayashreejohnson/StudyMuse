@@ -87,10 +87,10 @@ with tab2:
 
     if topic:
         with st.spinner("🔍 Searching the depths of science..."):
-            time.sleep(1.5)
+             time.sleep(1.5)
 
         if topic.lower() == "pcr":
-           st.success("🧬 Learning Module: Polymerase Chain Reaction (PCR)")
+            st.success("🧬 Learning Module: Polymerase Chain Reaction (PCR)")
 
             # --- Section: Deep Summary ---
             st.markdown("### 📋 Detailed Summary of PCR")
