@@ -79,13 +79,15 @@ with tab1:
 # Tab 2 code starts separately after this point
 # ---------------------------------------------
 # ---------------- Search Tab ----------------
+import time
+
 with tab2:
     st.subheader("Search Biotech/Science Topic")
     topic = st.text_input("Enter a topic (e.g., PCR, miRNA, CRISPR)")
 
-   if topic:
-       with st.spinner("🔎 Searching the depths of science..."):
-           time.sleep(1.5)  # Simulate animation pause
+    if topic:
+        with st.spinner("🔍 Searching the depths of science..."):
+            time.sleep(1.5)
 
         if topic.lower() == "pcr":
            st.success("🧬 Learning Module: Polymerase Chain Reaction (PCR)")
