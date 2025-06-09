@@ -1,4 +1,37 @@
+
 import streamlit as st
+from streamlit_extras.animate import animate
+
+st.set_page_config(
+    page_title="StudyMuse",
+    layout="centered",
+    initial_sidebar_state="auto",
+    page_icon="📚"
+)
+
+# Set pastel-themed background color and font
+st.markdown("""
+    <style>
+        body {
+            background-color: #fdf6f0;
+            color: #2d2d2d;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .stButton>button {
+            background-color: #fde2e2;
+            color: #000;
+            border-radius: 8px;
+            padding: 0.4em 1em;
+        }
+        .stTabs [data-baseweb="tab"] {
+            background-color: #f9f5ff;
+            border-radius: 8px 8px 0 0;
+        }
+        .stMarkdown h3, .stMarkdown h4, .stMarkdown h5 {
+            color: #6b4e71;
+        }
+    </style>
+""", unsafe_allow_html=True)
 import fitz  # PyMuPDF
 from PIL import Image
 import pytesseract
