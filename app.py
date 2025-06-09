@@ -88,17 +88,39 @@ with tab2:
             """)
 
             # --- Diagrams ---
-            st.markdown("### 🖼️ Visual Diagrams")
-            cols = st.columns(2)
-            images = [
-                ("PCR Workflow Overview", "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR1.jpeg"),
-                ("PCR Steps Simplified", "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR2.jpg"),
-                ("Visual Breakdown of Viral RNA Extraction & Detection", "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR3.jpg"),
-                ("DNA Polymerase Mechanism", "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR4.png"),
-                ("Thermal Profile of PCR", "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR5.jpeg")
-            ]
-            for i, (caption, url) in enumerate(images):
-                cols[i % 2].image(url, caption=caption, use_container_width=True)
+st.markdown("### 🖼️ Visual Diagrams")
+
+# First row of diagrams
+col1, col2 = st.columns(2)
+with col1:
+    st.image(
+        "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR1.jpeg",
+        caption="PCR Workflow Overview", use_container_width=True
+    )
+with col2:
+    st.image(
+        "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR2.jpg",
+        caption="PCR Steps Simplified", use_container_width=True
+    )
+
+# Second row of diagrams
+col3, col4 = st.columns(2)
+with col3:
+    st.image(
+        "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR4.png",
+        caption="DNA Polymerase Mechanism", use_container_width=True
+    )
+with col4:
+    st.image(
+        "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR3.jpg",
+        caption="Visual Breakdown of Viral RNA Extraction & Detection", use_container_width=True
+    )
+
+# Optional bottom diagram
+st.image(
+    "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR5.jpeg",
+    caption="Thermal Profile of PCR", use_container_width=True
+)
 
             # --- Videos ---
             st.markdown("### 🎥 Watch & Learn")
