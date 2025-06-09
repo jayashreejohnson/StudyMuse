@@ -1,63 +1,61 @@
 import streamlit as st
 import fitz  # PyMuPDF
-from PIL import Image 
-import pytesseract    
+from PIL import Image
+import pytesseract
 import tempfile
-import time       
+import time
 
+# --- Page config ---
 st.set_page_config(page_title="StudyMuse", layout="centered")
 
 # --- Custom Pastel Theme ---
 st.markdown("""
     <style>
     .stApp {
-        background-color: #fff8f4;
+        background: linear-gradient(135deg, #ffeef2 0%, #fdf6f0 50%, #eef9ff 100%);
         font-family: 'Helvetica Neue', sans-serif;
     }
     .stTabs [data-baseweb="tab-list"] {
-        background-color: #ffeaf2;
-        border-radius: 10px;
-        padding: 4px;
+        background-color: #fce6ec;
+        border-radius: 12px;
+        padding: 5px;
     }
     .stTabs [aria-selected="true"] {
-        background-color: #fcd6e2;
-        color: black;
-        border-radius: 10px;
+        background-color: #ffd6e6 !important;
+        border-radius: 8px;
+        color: #000 !important;
         font-weight: bold;
     }
-    input, .stTextInput>div>div>input {
-        background-color: #fffafc;
-        border: 1px solid #f7b4c2;
+    .stTextInput > div > div > input {
+        background-color: #fff0f5;
         border-radius: 8px;
         padding: 10px;
+        border: 1px solid #f9c3d1;
+    }
+    .stAlert-success {
+        background-color: #e6fffa;
+        color: #26d4a4;
     }
     h1, h2, h3, h4 {
         color: #3f3f3f;
     }
-    .stAlert-success {
-        background-color: #e6fffa;
-        color: #264d4a;
-    }
-    .css-1cpxqw2, .stMarkdown {
+    .stMarkdown {
         color: #2f2f2f;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# --- Page config and title ---
 st.title("📚 StudyMuse – Visual Memory Aid for Science Students")
 
-# --- Tabs for Upload/Search ---
 tab1, tab2 = st.tabs(["📤 Upload Notes", "🔍 Search Topic"])
 
-# ---------------- Upload Tab ----------------
+# --- Upload Notes Tab ---
 with tab1:
     st.subheader("Upload notes (PDF or image)")
     uploaded_file = st.file_uploader("Choose a file", type=["pdf", "png", "jpg", "jpeg"])
 
     if uploaded_file:
         file_type = uploaded_file.type
-
         if "pdf" in file_type:
             with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
                 tmp_file.write(uploaded_file.read())
@@ -67,130 +65,144 @@ with tab1:
                     text += page.get_text()
                 st.success("✅ Extracted text from PDF:")
                 st.write(text[:2000])
-
         elif "image" in file_type:
             img = Image.open(uploaded_file)
             text = pytesseract.image_to_string(img)
             st.success("✅ Extracted text from image:")
             st.write(text[:2000])
-        
         st.info("✨ Coming soon: Smart AI summaries + topic detection")
 
-# ---------------------------------------------
-# Tab 2 code starts separately after this point
-# ---------------------------------------------
-# ---------------- Search Tab ----------------
-
+# --- Search Topic Tab ---
 with tab2:
     st.subheader("Search Biotech/Science Topic")
     topic = st.text_input("Enter a topic (e.g., PCR, miRNA, CRISPR)")
 
-    if topic:
-        with st.spinner("🔍 Searching the depths of science..."):
-             time.sleep(1.5)
+    if topic.lower() == "pcr":
+        with st.spinner("✨ Summoning your visual memory experience..."):
+            time.sleep(1.5)
+        st.balloons()
+        st.success("🧬 Learning Module: Polymerase Chain Reaction (PCR)")
 
-        if topic.lower() == "pcr":
-            st.success("🧬 Learning Module: Polymerase Chain Reaction (PCR)")
+        st.markdown("### 📋 What is PCR?")
+        st.markdown("PCR (Polymerase Chain Reaction) is a revolutionary method used to amplify small DNA fragments into millions of copies, enabling deep biological analysis from minute samples.")
 
-            # --- Section: Deep Summary ---
-            st.markdown("### 📋 Detailed Summary of PCR")
+        with st.expander("📌 Important Points about PCR"):
             st.markdown("""
-            **Polymerase Chain Reaction (PCR)** is a groundbreaking molecular biology technique developed by **Kary Mullis** in 1983. It revolutionized the way we amplify and analyze DNA.
+- 🧬 Rapid DNA amplification technique  
+- 🧪 Uses primers, nucleotides, polymerase, and template DNA  
+- 🔥 Involves thermal cycling (heat → cool → extend)  
+- 👨‍🔬 Invented by Kary Mullis (Nobel Prize, 1993)  
+- 🧫 Widely used in diagnostics, cloning, forensics, and research  
+""")
 
-            #### 🔬 What is PCR?
-            A method to generate millions to billions of copies of a specific DNA segment using a thermal cycler.
+        st.markdown("### 🧩 Components of PCR")
+        st.markdown("""
+- **DNA Template** – the sequence to be copied  
+- **Primers** – short synthetic DNA strands flanking the region of interest  
+- **Taq Polymerase** – heat-stable enzyme from *Thermus aquaticus*  
+- **dNTPs** – nucleotides (A, T, G, C) to build new strands  
+- **Buffer Solution** – maintains optimal pH  
+- **Mg²⁺ Ions** – essential cofactor for enzyme function  
+""")
 
-            #### 🧠 Fun Facts:
-            - Invented during a drive on the California coast
-            - Won the **Nobel Prize in Chemistry** in 1993
-            - Used in everything from ancestry kits to COVID-19 testing
+        st.markdown("### 🔁 Steps in PCR Cycle")
+        st.markdown("""
+1. **Denaturation (94–96°C)**: DNA strands separate  
+2. **Annealing (50–65°C)**: Primers bind to target regions  
+3. **Extension (72°C)**: Taq polymerase adds nucleotides  
+🔁 Repeated for 30–40 cycles to amplify DNA
+""")
 
-            #### ⚙️ Components:
-            - Template DNA
-            - Primers (short DNA sequences that flank the target)
-            - Taq DNA Polymerase (heat-resistant enzyme)
-            - dNTPs (building blocks: A, T, G, C)
-            - Buffer with MgCl₂
+        st.markdown("### 🧪 Applications of PCR")
+        st.markdown("""
+- **Medical diagnostics** (e.g. COVID-19, HIV, genetic mutations)  
+- **Forensics** – DNA fingerprinting from trace evidence  
+- **Research** – Gene cloning, sequencing prep, mutagenesis  
+- **Agricultural biotech** – GMO detection, plant disease diagnosis  
+- **Environmental** – Microbial and pathogen detection in samples  
+""")
 
-            #### 🔁 Steps in a Cycle:
-            1. **Denaturation (94–96°C)** – DNA strands separate
-            2. **Annealing (50–65°C)** – Primers attach
-            3. **Extension (72°C)** – Taq polymerase builds new DNA
+        st.markdown("### 💼 Career Opportunities Involving PCR")
+        st.markdown("""
+- 🧬 **Molecular Biologist** – gene editing, cloning, expression studies  
+- 🔬 **Clinical Lab Scientist** – pathogen detection, prenatal testing  
+- 🕵️‍♀️ **Forensic Analyst** – crime scene DNA matching  
+- 🧪 **Pharma QA/QC** – purity & contamination checks  
+- 📈 **Bioinformatics Analyst** – analyze PCR & sequencing outputs  
+""")
 
-            #### ✅ Advantages:
-            - Rapid and cost-effective
-            - Requires minimal sample
-            - High specificity and sensitivity
-            - Versatile across fields (medical, forensics, agriculture)
+        st.markdown("### 📚 PCR Learning Resources")
+        st.markdown("""
+- 📺 [MIT PCR Tutorial](https://www.youtube.com/watch?v=2KoLnIwoZKU)  
+- 📘 [Nature Education: PCR](https://www.nature.com/scitable/topicpage/pcr-technology-490/)  
+- 🧪 [Addgene PCR Protocols](https://www.addgene.org/protocols/pcr/)  
+- 🎓 [Coursera: Genomic Data Science](https://www.coursera.org/learn/genomic-data-science)  
+""")
 
-            #### 🚫 Limitations:
-            - Contamination risk
-            - Requires primer sequence knowledge
-            - Not ideal for long DNA fragments
+        st.markdown("### 🖼️ Visual Workflow of PCR")
 
-            #### 🔬 Applications:
-            - 🧬 Genetic diagnostics (e.g., BRCA mutation testing)
-            - 🦠 Pathogen detection (e.g., COVID-19)
-            - 🔍 Forensic DNA profiling
-            - 🌾 Detection of GMOs in food
-            - 🧪 Research cloning & gene expression
-            """)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image("assets/pcr/PCR1.jpeg", caption="PCR Overview", use_column_width=True)
+            st.image("assets/pcr/PCR2.jpg", caption="PCR Machine – Thermal Cycler", use_column_width=True)
+            st.image("assets/pcr/PCR3.jpg", caption="Denaturation Step", use_column_width=True)
+        with col2:
+            st.image("assets/pcr/PCR4.png", caption="Annealing Step", use_column_width=True)
+            st.image("assets/pcr/PCR5.jpeg", caption="Extension Step", use_column_width=True)
 
-            # --- Diagrams ---
-            st.markdown("### 🖼️ Visual Diagrams")
-            col1, col2 = st.columns(2)
-            with col1:
-                st.image(
-                    "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR1.jpeg",
-                    caption="PCR Workflow Overview", use_container_width=True)
-            with col2:
-                st.image(
-                    "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR2.jpg",
-                    caption="PCR Steps Simplified", use_container_width=True)
+        with st.expander("✅ Advantages of PCR"):
+            st.markdown("""
+- Detects DNA from very low amounts  
+- Fast turnaround time  
+- Adaptable to many DNA/RNA types  
+- Portable PCR kits now exist  
+""")
 
-            col3, col4 = st.columns(2)
-            with col3:
-                st.image(
-                    "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR4.png",
-                    caption="DNA Polymerase Mechanism", use_container_width=True)
-            with col4:
-                st.image(
-                    "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR3.jpg",
-                    caption="Visual Breakdown of Viral RNA Extraction & Detection", use_container_width=True)
+        with st.expander("⚠️ Limitations of PCR"):
+            st.markdown("""
+- Sensitive to contamination  
+- Requires prior sequence knowledge  
+- Can’t distinguish live vs. dead DNA sources  
+""")
 
-            st.image(
-                "https://raw.githubusercontent.com/jayashreejohnson/StudyMuse/main/assets/pcr/PCR5.jpeg",
-                caption="Thermal Profile of PCR", use_container_width=True)
+        with st.expander("🎉 Fun Facts"):
+            st.markdown("""
+- PCR idea came to Kary Mullis on a road trip  
+- Taq polymerase comes from a hot spring bacterium  
+- PCR helped detect SARS-CoV-2 within days of outbreak  
+""")
 
-            # --- Videos ---
-            st.markdown("### 🎥 Watch & Learn")
-            st.video("https://www.youtube.com/embed/2KoLnIwoZKU")
-            st.video("https://www.youtube.com/embed/mOKb0Pd_Rac")
+        st.markdown("### 🎥 Watch & Learn")
+        st.video("https://www.youtube.com/watch?v=2KoLnIwoZKU")
+        st.video("https://www.youtube.com/watch?v=_YgXcJ4n-kQ")
+        st.video("https://www.youtube.com/watch?v=2aZ4YzGFOAo")
 
-            # --- Interactive Quiz ---
-            st.markdown("### 🧠 Quiz Time")
-            if "submitted" not in st.session_state:
-                st.session_state["submitted"] = False
+        st.markdown("### 🧠 Quick Quiz")
 
-            with st.form("quiz_form"):
-                q1 = st.radio("1. What does PCR stand for?",
-                              ["Protein Chain Reaction", "Polymerase Chain Reaction", "Primer Cloning Reaction"], index=None)
-                q2 = st.radio("2. What enzyme is used in PCR?",
-                              ["DNA Ligase", "RNA Polymerase", "Taq Polymerase"], index=None)
-                q3 = st.radio("3. What temperature is used in annealing?",
-                              ["30–40°C", "50–65°C", "75–85°C"], index=None)
-                q4 = st.radio("4. What happens during extension?",
-                              ["DNA separates", "Primers bind", "Taq builds new DNA"], index=None)
-                submit = st.form_submit_button("Submit Answers")
+        q1 = st.radio("1. What enzyme is used in PCR?", 
+                      ["DNA Ligase", "Taq Polymerase", "RNA Polymerase"], key="q1")
+        if q1 == "Taq Polymerase":
+            st.success("✅ Correct!")
+        elif q1:
+            st.error("❌ Nope. The correct answer is Taq Polymerase.")
 
-            if submit:
-                st.markdown("### ✅ Your Results")
-                st.markdown(f"**Q1:** {'✅ Correct' if q1 == 'Polymerase Chain Reaction' else '❌ Incorrect'}")
-                st.markdown(f"**Q2:** {'✅ Correct' if q2 == 'Taq Polymerase' else '❌ Incorrect'}")
-                st.markdown(f"**Q3:** {'✅ Correct' if q3 == '50–65°C' else '❌ Incorrect'}")
-                st.markdown(f"**Q4:** {'✅ Correct' if q4 == 'Taq builds new DNA' else '❌ Incorrect'}")
+        q2 = st.radio("2. What happens during denaturation?", 
+                      ["Primers bind", "DNA strands separate", "Polymerase extends DNA"], key="q2")
+        if q2 == "DNA strands separate":
+            st.success("✅ That's right!")
+        elif q2:
+            st.error("❌ Denaturation splits the DNA strands.")
 
-            st.info("🧪 Stay tuned for advanced scoring, saved progress, and more topics!")
-        else:
-            st.warning(f"No visual module yet for: {topic}")
+        q3 = st.radio("3. What temperature is optimal for extension?", 
+                      ["37°C", "50°C", "72°C"], key="q3")
+        if q3 == "72°C":
+            st.success("✅ Correct!")
+        elif q3:
+            st.error("❌ Extension occurs around 72°C.")
+
+        st.info("📈 More levels, points, and unlockable flashcards coming soon!")
+
+    elif topic:
+        st.warning(f"⚠️ No visual learning module yet for: {topic}")
+        st.info("✨ Try typing 'PCR' to explore an interactive demo.")
 
